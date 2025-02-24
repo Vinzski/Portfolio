@@ -1,15 +1,18 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import './styles/Global.css';
+import React from "react";
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import Navbar from "./components/Navbar";
+import MatrixBackground from "./components/MatrixBackground";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className="app-container">
+      <MatrixBackground /> {/* Apply globally */}
       <Navbar />
       <HeroSection />
+      <AboutSection />
     </div>
   );
-}
+};
 
 export default App;

@@ -13,14 +13,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const targetSection = document.getElementById(targetId);
+    
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - 50, // Adjust for navbar height
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-logo glitch" data-text="Vinx">Vinx</div>
       <ul className="navbar-menu">
-        <li className="navbar-item"><a href="#home">Home</a></li>
-        <li className="navbar-item"><a href="#about">About</a></li>
-        <li className="navbar-item"><a href="#projects">Projects</a></li>
-        <li className="navbar-item"><a href="#contact">Contact</a></li>
+        <li className="navbar-item">
+          <a href="#home" onClick={(e) => handleNavClick(e, "home")}>Home</a>
+        </li>
+        <li className="navbar-item">
+          <a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a>
+        </li>
+        <li className="navbar-item">
+          <a href="#projects" onClick={(e) => handleNavClick(e, "projects")}>Projects</a>
+        </li>
+        <li className="navbar-item">
+          <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a>
+        </li>
       </ul>
     </nav>
   );

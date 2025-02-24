@@ -5,7 +5,7 @@ import '../styles/HeroSection.css';
 
 const HeroSection = () => {
   return (
-    <section className="hero-section">
+    <section id="home" className="hero-section">
       <MatrixBackground />
       <h1 className="hero-name">Vince Bradley C. Muloc</h1>
       <TypingAnimation />
