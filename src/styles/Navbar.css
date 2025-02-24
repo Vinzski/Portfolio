@@ -13,7 +13,7 @@
     backdrop-filter: blur(3px);
     transition: background 0.3s ease-in-out;
     border-bottom: 1px solid rgba(77, 166, 116, 0.4);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* When scrolled, navbar becomes more transparent */
@@ -31,6 +31,7 @@
     top: 0;
     left: 0;
     animation: scan-line 4s infinite linear;
+    overflow-x: hidden;
 }
 
 @keyframes scan-line {

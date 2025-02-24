@@ -1,14 +1,15 @@
 .hero-section {
+    height: 90vh; /* Full viewport height */
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 60px); /* Subtract navbar height */
-    width: 100vw;
     color: #EAF8E7;
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    position: relative; /* Ensures content appears above the background */
+    z-index: 2; /* Higher than the matrix effect */
   }
   
   .hero-section::before {
@@ -20,6 +21,7 @@
     height: 100%;
     background: rgba(2, 51, 54, 0.7); /* Dark green with 70% opacity */
     z-index: 1; /* Place it above the canvas but below the text */
+    overflow-x: hidden;
   }
   
   .hero-name {
@@ -28,11 +30,12 @@
     margin-bottom: 1rem;
     color: #C1E6BA;
     z-index: 2;
-    text-shadow:
-      0 0 5px #4DA674, /* Glow effect */
-      0 0 10px #4DA674,
-      0 0 20px #4DA674,
+    text-shadow: 
+      0 0 5px #C1E6BA, /* Glow effect */
+      0 0 10px #C1E6BA, 
+      0 0 20px #C1E6BA, 
       2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for contrast */
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
     animation: pulse 2s infinite;
   }
   
