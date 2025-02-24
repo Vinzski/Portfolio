@@ -1,13 +1,15 @@
 import React from 'react';
-import Hero from './components/Hero'; 
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import './styles/Global.css';
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <Hero />
-      {}
+    <div className="App">
+      <Navbar />
+      <HeroSection />
     </div>
   );
-};
+}
 
 export default App;
