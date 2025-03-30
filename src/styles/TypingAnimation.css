@@ -1,20 +1,25 @@
 .typing-animation {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #4DA674;
-    text-shadow: 
-      0 0 5px #C1E6BA, /* Glow effect */
-      0 0 10px #C1E6BA, 
-      0 0 20px #C1E6BA, 
-      2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for contrast */
-    white-space: pre-wrap; /* Preserve spaces and line breaks */
+  display: inline-block;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  white-space: normal;
+  overflow: hidden;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .typing-animation {
+    max-width: 95%;
+    font-size: 1.3rem;
   }
-  
-  .cursor {
-    animation: blink 1s infinite;
+}
+
+@media (max-width: 480px) {
+  .typing-animation {
+    max-width: 100%;
+    font-size: 1.2rem;
   }
-  
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
+}
+

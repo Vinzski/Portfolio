@@ -80,7 +80,7 @@ const AboutSection = () => {
 
         {/* Entered Contests */}
         <div className="contests-section">
-          <h3 className="section-title neon-text">Personal Touch</h3>
+          <h3 className="section-title neon-text">Career Goals</h3>
           <div className="contest-cards">
             <div className="contest-card neon-glow">
               <h4>2025 - Graduate</h4>
