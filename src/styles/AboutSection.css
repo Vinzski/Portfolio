@@ -1,190 +1,158 @@
 .about-section {
-  padding: 4rem 2rem;
+  padding: 6rem 1.5rem 4rem;
   background: rgba(2, 51, 54, 0.9);
-  color: #EAF8E7;
-  overflow-x: hidden;
+  color: #eaf8e7;
   position: relative;
   z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Introduction */
 .intro {
   text-align: center;
   margin-bottom: 4rem;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .intro-title {
-  font-size: 3rem;
-  color: #4DA674;
-  text-shadow: 0 0 10px #4DA674;
-  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  color: #4da674;
+  text-shadow: 0 0 10px #4da674;
+  margin-bottom: 1.5rem;
   animation: glitch 1s infinite;
 }
 
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }
 
 .intro-text {
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
 }
 
 .futuristic-text {
   display: inline-block;
-  font-size: 1.5rem;
-  color: #C1E6BA;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: #c1e6ba;
   animation: text-glow 2s infinite alternate;
 }
 
 @keyframes text-glow {
-  0% { text-shadow: 0 0 5px #4DA674; }
-  100% { text-shadow: 0 0 20px #4DA674; }
+  0% {
+    text-shadow: 0 0 5px #4da674;
+  }
+
+  100% {
+    text-shadow: 0 0 20px #4da674;
+  }
 }
 
-/* Grid Layout */
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.contests-section {
   margin-bottom: 4rem;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-/* Contests Section */
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.contests-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .contest-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
 }
 
 .contest-card {
-  padding: 1.5rem;
-  border: 1px solid #4DA674;
-  border-radius: 8px;
+  padding: 2rem;
+  border: 2px solid #4da674;
+  border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.contest-card h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #4da674;
+  text-shadow: 0 0 5px #4da674;
+}
+
+.contest-card p {
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 .contest-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px #4DA674;
+  box-shadow: 0 0 20px #4da674;
 }
 
-/* Skills Section */
-.marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.marquee-content {
-  display: inline-block;
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-.skill-tag {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  border: 1px solid #4DA674;
-  border-radius: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-tag:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 10px #4DA674;
-}
-
-/* Career Goals */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.timeline-item {
-  padding: 1rem;
-  border-left: 2px solid #4DA674;
-  position: relative;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 0;
-  width: 10px;
-  height: 10px;
-  background: #4DA674;
-  border-radius: 50%;
-}
-
-/* Fun Facts */
-.fun-facts {
-  list-style: none;
-  padding: 0;
-}
-
-.fun-facts li {
-  margin-bottom: 0.5rem;
-}
-
-/* Call to Action */
-.cta-section {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.cta-button {
-  padding: 1rem 2rem;
-  background: transparent;
-  border: 2px solid #4DA674;
-  color: #C1E6BA;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  background: #4DA674;
-  color: #022F36;
-  box-shadow: 0 0 20px #4DA674;
-}
-
-/* Neon Glow Effect */
-.neon-glow {
-  animation: neon-glow 1.5s infinite alternate;
-}
-
-@keyframes neon-glow {
-  0% { box-shadow: 0 0 5px #4DA674, 0 0 10px #4DA674, 0 0 20px #4DA674; }
-  100% { box-shadow: 0 0 10px #4DA674, 0 0 20px #4DA674, 0 0 40px #4DA674; }
-}
-
-.neon-text {
-  color: #4DA674;
-  text-shadow: 0 0 10px #4DA674;
-}
-
-/* Skills Section */
 .skills-section {
-  margin: 2rem 0;
+  margin: 3rem 0;
   text-align: center;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .skills-scroll-container {
@@ -196,79 +164,253 @@
 
 .skills-scroll {
   display: flex;
-  animation: scroll-skills 20s linear infinite;
-  padding: 1rem 0;
+  animation: scroll-skills 50s linear infinite;
+  padding: 1.5rem 0;
+  flex-wrap: nowrap;
+  width: max-content;
 }
 
 @keyframes scroll-skills {
   0% {
     transform: translateX(0);
   }
-  25% {
-    transform: translateX(-25%);
-  }
-  50% {
-    transform: translateX(-50%);
-    animation-timing-function: ease-in-out; /* Pause effect */
-  }
-  75% {
-    transform: translateX(-75%);
-  }
+
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
 .skill-tag {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  border: 1px solid #4DA674;
-  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  margin: 0 0.8rem;
+  border: 2px solid #4da674;
+  border-radius: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap;
+  font-size: 1.2rem;
+}
+
+.skill-tag svg {
+  margin-right: 0.8rem;
+  font-size: 1.5rem;
 }
 
 .skill-tag:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 10px #4DA674;
+  box-shadow: 0 0 10px #4da674;
 }
 
-/* Personal Touch Section */
 .personal-touch {
-  margin-top: 4rem;
+  margin: 4rem 0;
   text-align: center;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .fun-facts {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  width: 100%;
 }
 
 .fun-fact {
-  max-width: 300px;
-  padding: 1rem;
-  border: 1px solid #4DA674;
+  flex: 1 1 280px;
+  max-width: 350px;
+  padding: 2rem;
+  border: 2px solid #4da674;
   border-radius: 10px;
   background: rgba(2, 51, 54, 0.8);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 .fun-fact h4 {
-  font-size: 1.5rem;
-  color: #4DA674;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #4da674;
+  text-shadow: 0 0 5px #4da674;
 }
 
 .fun-fact p {
-  font-size: 1rem;
-  color: #C1E6BA;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #c1e6ba;
   text-shadow: 0 0 5px rgba(195, 255, 175, 0.8);
 }
 
 .fun-fact:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px #4DA674;
+  box-shadow: 0 0 20px #4da674;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 3rem;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cta-button {
+  padding: 1.5rem 3rem;
+  background: transparent;
+  border: 2px solid #4da674;
+  color: #c1e6ba;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.cta-button:hover {
+  background: #4da674;
+  color: #022f36;
+  box-shadow: 0 0 20px #4da674;
+}
+
+.neon-glow {
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 5px #4da674, 0 0 10px #4da674, 0 0 20px #4da674;
+  }
+
+  100% {
+    box-shadow: 0 0 10px #4da674, 0 0 20px #4da674, 0 0 40px #4da674;
+  }
+}
+
+.neon-text {
+  color: #4da674;
+  text-shadow: 0 0 10px #4da674;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .contest-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .contest-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 1.8rem;
+    min-height: 0;
+  }
+
+  .contest-card h4 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .contest-card p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+  .fun-facts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .fun-fact {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 1.8rem;
+  }
+
+  .fun-fact h4 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .fun-fact p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+  .skill-tag {
+    padding: 0.7rem 1.3rem;
+    font-size: 1.1rem;
+  }
+
+  .skill-tag svg {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 5rem 0.75rem 2.5rem;
+  }
+
+  .contest-cards {
+    padding: 0 0.75rem;
+    width: calc(100% - 1.5rem);
+  }
+
+  .fun-facts {
+    padding: 0 0.75rem;
+    width: calc(100% - 1.5rem);
+  }
+
+  .contest-card,
+  .fun-fact {
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  .contest-card h4,
+  .fun-fact h4 {
+    font-size: 1.6rem;
+  }
+
+  .contest-card p,
+  .fun-fact p {
+    font-size: 1.3rem;
+  }
+
+  .skill-tag {
+    padding: 0.6rem 1.2rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+  }
+
+  .skill-tag svg {
+    font-size: 1.3rem;
+    margin-right: 0.6rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .about-container {
+    max-width: 1400px;
+  }
+
+  .contest-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
