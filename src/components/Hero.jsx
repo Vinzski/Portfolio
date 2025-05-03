@@ -1,188 +1,128 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Code, Briefcase, Award, User } from "lucide-react";
+import { Code, Cpu, Server, GitBranch } from "lucide-react";
 import "../styles/Hero.css";
 
 const Hero = () => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(100);
-
-  const textArray = [
+  
+  const roles = [
     "Backend Developer",
-    "Web Developer",
-    "Technical Builder",
-    "System Innovator",
+    "Logical Thinker",
+    "AI Enjoyer",
+    "Web Developer"
   ];
-
-  useEffect(() => {
-    const text = textArray[currentTextIndex];
-    const shouldDelete = isDeleting;
-    const delay = shouldDelete ? 50 : typingSpeed;
-
-    if (!shouldDelete && displayText === text) {
-      // Pause at full word
-      setTimeout(() => setIsDeleting(true), 1500);
-      return;
-    } else if (shouldDelete && displayText === "") {
-      // Move to next word
-      setIsDeleting(false);
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % textArray.length);
-      return;
-    }
-
-    const timeout = setTimeout(() => {
-      setDisplayText(
-        shouldDelete
-          ? text.substring(0, displayText.length - 1)
-          : text.substring(0, displayText.length + 1)
-      );
-    }, delay);
-
-    return () => clearTimeout(timeout);
-  }, [displayText, currentTextIndex, isDeleting, textArray, typingSpeed]);
 
   const scrollToProjects = () => {
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
   };
 
-  const iconVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.8 + i * 0.2,
-        duration: 0.5,
-      },
-    }),
-  };
+  // Typewriter effect
+  useEffect(() => {
+    const role = roles[currentRoleIndex];
+    const speed = isDeleting ? 30 : 100;
+    
+    if (!isDeleting && displayText === role) {
+      setTimeout(() => setIsDeleting(true), 2000);
+      return;
+    }
+    
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText(isDeleting 
+        ? role.substring(0, displayText.length - 1)
+        : role.substring(0, displayText.length + 1)
+      );
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, currentRoleIndex, isDeleting]);
 
   return (
-    <div className="hero-container">
+    <section className="hero">
       <div className="hero-background">
-        <div className="animated-gradient"></div>
-        <div className="particles-container">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="particle"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 10 + 10}s`,
-                animationDelay: `${Math.random() * 5}s`,
-                opacity: Math.random() * 0.5 + 0.1,
-              }}
-            ></div>
+        <div className="grid-lines"></div>
+        <div className="floating-shapes">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="shape" style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${i * 2}s`
+            }}></div>
           ))}
         </div>
       </div>
 
       <div className="hero-content">
-        <motion.div
-          className="hero-greeting"
-          initial={{ opacity: 0, y: -20 }}
+        <motion.div 
+          className="intro-text"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ delay: 0.2 }}
         >
-          Hello, I'm
+          <h1 className="name">
+            <span className="first-name">Vince</span>
+            <span className="last-name">Bradley Muloc</span>
+          </h1>
+          <div className="role-container">
+            <span className="role">{displayText}</span>
+          </div>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="hero-name"
+        <motion.p 
+          className="tagline"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
         >
-          Vince Bradley Muloc
-        </motion.h1>
-
-        <motion.div
-          className="hero-title-container"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <span className="hero-title-prefix">I'm a </span>
-          <span className="hero-title-dynamic">{displayText}</span>
-          <span className="cursor"></span>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="hero-tagline"
-        >
-          Behind every seamless app is a rock-solid backend holding it all
-          together.
+          Building <span className="highlight">scalable</span>,{' '}
+          <span className="highlight">efficient</span> systems that power{' '}
+          <span className="highlight">exceptional</span> digital experiences
         </motion.p>
 
-        <motion.div className="hero-icons">
-          <motion.div
-            className="hero-icon"
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-          >
-            <Code size={24} />
-            <span>Clean Code</span>
-          </motion.div>
-          <motion.div
-            className="hero-icon"
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-          >
-            <Briefcase size={24} />
-            <span>Professional</span>
-          </motion.div>
-          <motion.div
-            className="hero-icon"
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-          >
-            <Award size={24} />
-            <span>Certified</span>
-          </motion.div>
-          <motion.div
-            className="hero-icon"
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            custom={3}
-          >
-            <User size={24} />
-            <span>User-Focused</span>
-          </motion.div>
-        </motion.div>
+        <div className="expertise">
+          {[
+            { icon: <Server size={20} />, label: "Server-Side" },
+            { icon: <Cpu size={20} />, label: "Optimization" },
+            { icon: <GitBranch size={20} />, label: "Version Control" },
+            { icon: <Code size={20} />, label: "Clean Code" }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className="expertise-item"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 + i * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           className="cta-container"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.6 }}
+          onClick={scrollToProjects}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
         >
-          <motion.button
-            className="cta-button"
-            onClick={scrollToProjects}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View My Work
-            <ArrowDown size={16} className="arrow-icon" />
-          </motion.button>
+          <button className="cta-primary">
+            View My Projects
+            <div className="arrow"></div>
+          </button>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
