@@ -33,15 +33,12 @@ const About = () => {
           >
             <h3>Career Goals</h3>
             <p>
-              I'm passionate about creating intuitive and performant web applications that solve real-world problems. My
-              goal is to work with innovative teams on challenging projects that push the boundaries of web technology.
+            a driven and hands-on developer with a passion for building smart, practical web applications. I enjoy creating systems that solve real problems—from customizable chatbots to security-focused facial recognition tools. Whether I’m working with Laravel, React, or integrating APIs, I like keeping my projects clean, functional, and user-friendly.
             </p>
   
             <h3>Personal Touch</h3>
             <p>
-              When I'm not coding, you'll find me hiking in nature, experimenting with new cooking recipes, or attending
-              local tech meetups. I believe in continuous learning and giving back to the community.
-            </p>
+            When I’m not in front of a screen writing code, I’m probably lost in music—Queen, Air Supply, and Kolohe Kai are always on repeat. There’s something about timeless melodies and meaningful lyrics that help me reset.            </p>
   
             <motion.button
               className="cta-button"
