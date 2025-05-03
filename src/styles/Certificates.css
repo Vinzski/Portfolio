@@ -1,0 +1,140 @@
+.certificates-container {
+    background-color: var(--card-bg);
+  }
+  
+  .certificates-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  
+  .certificate-card {
+    background-color: var(--background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  
+  .certificate-image-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .certificate-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  
+  .certificate-card:hover .certificate-image {
+    transform: scale(1.05);
+  }
+  
+  .certificate-info {
+    padding: 1.25rem;
+  }
+  
+  .certificate-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+  }
+  
+  .certificate-info p {
+    font-size: 0.9rem;
+    color: var(--neutral);
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    padding: 2rem;
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px var(--shadow);
+    transition: var(--transition);
+  }
+  
+  .modal-close:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+  }
+  
+  .modal-info {
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+  }
+  
+  .modal-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+  }
+  
+  .modal-info p {
+    font-size: 1rem;
+    color: var(--neutral);
+  }
+  
+  @media (max-width: 992px) {
+    .certificates-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .certificates-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
