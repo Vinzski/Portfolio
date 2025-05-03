@@ -97,17 +97,6 @@ const Projects = () => {
               <div className="project-overlay">
                 <div className="project-buttons">
                   <motion.a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-button demo"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <ExternalLink size={16} />
-                    View Demo
-                  </motion.a>
-                  <motion.a
                     href={project.codeLink}
                     target="_blank"
                     rel="noopener noreferrer"
