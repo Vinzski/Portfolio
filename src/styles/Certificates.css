@@ -78,6 +78,9 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    margin-left: 1.77rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
   }
   
   .modal-close {

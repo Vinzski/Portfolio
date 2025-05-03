@@ -6,16 +6,16 @@ import "../styles/TechCarousel.css";
 
 const TechCarousel = () => {
   const techStack = [
-    { name: "React", icon: "../public/icons/react.svg" },
-    { name: "Laravel", icon: "../public/icons/laravel.svg" },
-    { name: "PHP", icon: "../public/icons/php.svg" },
-    { name: "HTML5", icon: "../public/icons/html5.svg" },
-    { name: "CSS3", icon: "../public/icons/css3.svg" },
-    { name: "JavaScript", icon: "../public/icons/javascript.svg" },
-    { name: "Node.js", icon: "../public/icons/nodejs.svg" },
-    { name: "Git", icon: "../public/icons/git.svg" },
-    { name: "MongoDB", icon: "../public/icons/mongodb.svg" },
-    { name: "MySQL", icon: "../public/icons/mysql.svg" },
+    { name: "React", icon: "/icons/react.svg" },
+    { name: "Laravel", icon: "/icons/laravel.svg" },
+    { name: "PHP", icon: "/icons/php.svg" },
+    { name: "HTML5", icon: "/icons/html5.svg" },
+    { name: "CSS3", icon: "/icons/css3.svg" },
+    { name: "JavaScript", icon: "/icons/javascript.svg" },
+    { name: "Node.js", icon: "/icons/nodejs.svg" },
+    { name: "Git", icon: "/icons/git.svg" },
+    { name: "MongoDB", icon: "/icons/mongodb.svg" },
+    { name: "MySQL", icon: "/icons/mysql.svg" },
   ];
 
   // Duplicate the tech stack for seamless looping
