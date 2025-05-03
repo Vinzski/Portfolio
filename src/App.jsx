@@ -7,6 +7,7 @@ import Hero from "./components/Hero"
 import About from "./components/About"
 import Certificates from "./components/Certificates"
 import Projects from "./components/Projects"
+import CallToAction from "./components/CallToAction"
 import Footer from "./components/Footer"
 import ThemeToggle from "./components/ThemeToggle"
 import ContactModal from "./components/ContactModal"
@@ -85,6 +86,8 @@ function App() {
         <section id="projects">
           <Projects />
         </section>
+
+        <CallToAction />
       </motion.main>
 
       <Footer />

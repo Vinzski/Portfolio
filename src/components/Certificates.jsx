@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import "../styles/Certificates.css";
+import { useState, useEffect, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import "../styles/Certificates.css"
 
 const Certificates = () => {
-  const [selectedCertificate, setSelectedCertificate] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedCertificate, setSelectedCertificate] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+  const carouselRef = useRef(null)
 
   const certificates = [
     {
@@ -75,27 +77,33 @@ const Certificates = () => {
     },
   ];
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   const openModal = (certificate) => {
-    setSelectedCertificate(certificate);
-    document.body.style.overflow = "hidden";
-  };
+    setSelectedCertificate(certificate)
+    document.body.style.overflow = "hidden"
+  }
 
   const closeModal = () => {
-    setSelectedCertificate(null);
-    document.body.style.overflow = "auto";
-  };
+    setSelectedCertificate(null)
+    document.body.style.overflow = "auto"
+  }
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === Math.ceil(certificates.length / 3) - 1 ? 0 : prevIndex + 1
-    );
-  };
+    setCurrentIndex((prevIndex) => (prevIndex === certificates.length - 1 ? 0 : prevIndex + 1))
+  }
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? Math.ceil(certificates.length / 3) - 1 : prevIndex - 1
-    );
-  };
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? certificates.length - 1 : prevIndex - 1))
+  }
 
   return (
     <div className="certificates-container">
@@ -109,50 +117,65 @@ const Certificates = () => {
         Certificates & Participation
       </motion.h2>
 
-      <div className="certificates-content">
-        <motion.div
-          className="certificates-grid"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          {certificates.map((certificate, index) => (
-            <motion.div
-              key={certificate.id}
-              className="certificate-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.1 * (index % 3) }}
-              whileHover={{
-                y: -10,
-                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
-              }}
-              onClick={() => openModal(certificate)}
-            >
-              <div className="certificate-image-container">
-                <img
-                  src={certificate.image || "/placeholder.svg"}
-                  alt={certificate.title}
-                  className="certificate-image"
-                  onError={(e) => {
-                    e.target.src = `/placeholder.svg?height=200&width=300`;
-                    e.target.alt = `${certificate.title} (placeholder)`;
-                  }}
-                />
-              </div>
-              <div className="certificate-info">
-                <h3>{certificate.title}</h3>
-                <p>
-                  {certificate.issuer} • {certificate.date}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+      <motion.p
+        className="section-description"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        A collection of professional certifications and courses I've completed to enhance my skills and stay current
+        with industry standards.
+      </motion.p>
 
-        <div className="carousel-controls"></div>
+      <div className="carousel-container" ref={carouselRef}>
+        <div className="carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          {certificates.map((certificate, index) => (
+            <div
+              key={certificate.id}
+              className={`carousel-slide ${index === currentIndex ? "active" : ""}`}
+              onClick={() => index === currentIndex && openModal(certificate)}
+            >
+              <div className="certificate-card">
+                <div className="certificate-image-container">
+                  <img
+                    src={certificate.image || "/placeholder.svg"}
+                    alt={certificate.title}
+                    className="certificate-image"
+                    onError={(e) => {
+                      e.target.src = `/placeholder.svg?height=400&width=600`
+                      e.target.alt = `${certificate.title} (placeholder)`
+                    }}
+                  />
+                </div>
+                <div className="certificate-info">
+                  <h3>{certificate.title}</h3>
+                  <p>
+                    {certificate.issuer} • {certificate.date}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button className="carousel-arrow prev" onClick={handlePrev} aria-label="Previous certificate">
+          <ChevronLeft size={24} />
+        </button>
+        <button className="carousel-arrow next" onClick={handleNext} aria-label="Next certificate">
+          <ChevronRight size={24} />
+        </button>
+
+        <div className="carousel-pagination">
+          {certificates.map((_, index) => (
+            <button
+              key={index}
+              className={`pagination-dot ${index === currentIndex ? "active" : ""}`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Go to certificate ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       <AnimatePresence>
@@ -179,8 +202,8 @@ const Certificates = () => {
                 alt={selectedCertificate.title}
                 className="modal-image"
                 onError={(e) => {
-                  e.target.src = `/placeholder.svg?height=600&width=800`;
-                  e.target.alt = `${selectedCertificate.title} (placeholder)`;
+                  e.target.src = `/placeholder.svg?height=600&width=800`
+                  e.target.alt = `${selectedCertificate.title} (placeholder)`
                 }}
               />
               <div className="modal-info">
@@ -194,7 +217,7 @@ const Certificates = () => {
         )}
       </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
-export default Certificates;
+export default Certificates

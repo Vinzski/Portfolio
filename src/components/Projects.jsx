@@ -8,7 +8,7 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-commerce Platform",
+      title: "Bizbot",
       description: "BizBot: Customizable Intelligent Chatbot for Business Support and Information Retrieval",
       image: "/projects/bizbot.png",
       technologies: ["Node.js", "MongoDB", "Rasa", "Cohere", "Machine Learning", "AI"],
@@ -73,6 +73,17 @@ const Projects = () => {
       >
         Projects
       </motion.h2>
+
+      <motion.p
+        className="section-description"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        Explore my latest work and personal projects. Each project represents different skills and technologies I've
+        mastered throughout my journey.
+      </motion.p>
 
       <div className="projects-grid">
         {projects.map((project, index) => (
