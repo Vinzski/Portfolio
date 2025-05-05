@@ -40,7 +40,7 @@ const About = () => {
       icon: <Award size={20} />,
     },
     {
-      year: "2024",
+      year: "2024-2025",
       title: "Capstone Passer",
       company: "College of Computing Studies (WMSU)",
       description:
@@ -48,20 +48,12 @@ const About = () => {
       icon: <GraduationCap size={20} />,
     },
     {
-      year: "2022",
-      title: "CCS MLBB Champions",
-      company: "College of Computing Studies Fest (WMSU)",
+      year: "2023-2024",
+      title: "Software Engineering Passer",
+      company: "Chronologix",
       description:
-        "Back-to-back MLBB champions! We did it again with unmatched teamwork and strategy.",
+        "Passed my Software Engineering course by working as a Backend Developer for an Environmental Engineering Portal under Chronologix, focusing on server-side development and database integration.",
       icon: <GraduationCap size={20} />,
-    },
-    {
-      year: "2021",
-      title: "CCS MLBB Champions",
-      company: "College of Computing Studies Fest (WMSU)",
-      description:
-        "We’re the MLBB champions! Hard work, strategy, and teamwork paid off, and we came out on top.",
-      icon: <Award size={20} />,
     },
   ];
 
