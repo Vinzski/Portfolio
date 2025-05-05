@@ -90,7 +90,7 @@ const Navbar = ({ activeSection }) => {
               </a>
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <a href="/blog">Blog</a>
+              <a href="https://vinx-blog.netlify.app/">Blog</a>
             </motion.li>
           </ul>
         </div>
