@@ -8,6 +8,7 @@ const TechCarousel = () => {
   const techStack = [
     { name: "React", icon: "/icons/react.svg" },
     { name: "Laravel", icon: "/icons/laravel.svg" },
+    { name: "Python", icon: "/icons/python.svg" },
     { name: "PHP", icon: "/icons/php.svg" },
     { name: "HTML5", icon: "/icons/html5.svg" },
     { name: "CSS3", icon: "/icons/css3.svg" },
