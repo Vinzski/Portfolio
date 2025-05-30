@@ -62,15 +62,6 @@ const Projects = () => {
     },
     {
       id: 7,
-      title: "Scientific Calculator",
-      description: "An online tool for performing basic and advanced math functions like trig, logs, and exponents.",
-      image: "/projects/scical.png",
-      technologies: ["React"],
-      demoLink: "",
-      codeLink: "",
-    },
-    {
-      id: 8,
       title: "PowerHouse",
       description: "An E-commerce website for gym owners which their users can use for to get gym membership and equipment rental and selling",
       image: "/projects/powerhouse.jpg",
@@ -79,7 +70,7 @@ const Projects = () => {
       codeLink: "",
     },
     {
-      id: 9,
+      id: 8,
       title: "Educational Tour Blog",
       description: "Our 7 day WMSU CCS Education Tour to Manila and Baguio City",
       image: "/projects/blog.png",

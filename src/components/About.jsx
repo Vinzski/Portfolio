@@ -26,9 +26,9 @@ const About = () => {
   const timelineItems = [
     {
       year: "2025",
-      title: "Graduating",
+      title: "Graduated",
       company: "Western Mindanao State University",
-      description: "Hoping to Graduate this year",
+      description: "Finished my Bachelors Degree in Information Technology",
       icon: <GraduationCap size={20} />,
     },
     {
