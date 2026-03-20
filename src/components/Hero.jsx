@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Code, Cpu, Server, GitBranch } from "lucide-react";
+import { Code, Cpu, Server, GitBranch, Download, Github, Linkedin } from "lucide-react";
 import "../styles/Hero.css";
 
 const Hero = () => {
@@ -110,16 +110,56 @@ const Hero = () => {
         </div>
 
         <motion.div
+          className="hero-stats"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.0 }}
+        >
+          {[
+            { value: "9+", label: "Projects" },
+            { value: "10+", label: "Certificates" },
+            { value: "BSIT", label: "Graduate" },
+          ].map((stat, i) => (
+            <div key={i} className="hero-stat">
+              <span className="stat-value">{stat.value}</span>
+              <span className="stat-label">{stat.label}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div
           className="cta-container"
-          onClick={scrollToProjects}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          <button className="cta-primary">
+          <button className="cta-primary" onClick={scrollToProjects}>
             View My Projects
             <div className="arrow"></div>
           </button>
+          <a
+            href="/resume/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-secondary"
+          >
+            Download Resume
+            <Download size={18} />
+          </a>
+        </motion.div>
+
+        <motion.div
+          className="hero-social"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4 }}
+        >
+          <a href="https://github.com/Vinzski" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <Github size={20} />
+          </a>
+          <a href="https://www.linkedin.com/in/vince-muloc-966920327/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Linkedin size={20} />
+          </a>
         </motion.div>
       </div>
     </section>

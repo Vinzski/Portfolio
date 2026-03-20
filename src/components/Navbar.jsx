@@ -96,7 +96,7 @@ const Navbar = ({ activeSection }) => {
             <a href="https://vinx-blog.netlify.app/">Blog</a>
           </motion.li>
           <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-            <a href="/resume.pdf" download>
+            <a href="/resume/resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </motion.li>
