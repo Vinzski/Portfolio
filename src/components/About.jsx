@@ -26,6 +26,13 @@ const About = () => {
   const timelineItems = [
     {
       year: "2025",
+      title: "Software Developer",
+      company: "Local Government Unit of Zamboanga City",
+      description: "Working as a software developer at my local government unit, developing different types of systems which include payrolls, procurements, document tracking.",
+      icon: <GraduationCap size={20} />,
+    },
+    {
+      year: "2025",
       title: "Graduated",
       company: "Western Mindanao State University",
       description: "Finished my Bachelors Degree in Information Technology",
@@ -44,7 +51,7 @@ const About = () => {
       title: "Capstone Passer",
       company: "College of Computing Studies (WMSU)",
       description:
-        "I passed my capstone project with a working intelligent chatbot system—one step closer to my goals!",
+        "I passed my capstone project with a working intelligent chatbot system, one step closer to my goals!",
       icon: <GraduationCap size={20} />,
     },
     {
@@ -116,14 +123,14 @@ const About = () => {
           <p>
             I'm Vince, a driven and hands-on developer with a passion for
             building smart, practical web applications. I’m always eager to
-            learn, experiment, and refine my skills—because for me, development
+            learn, experiment, and refine my skills, because for me, development
             is more than just code; it's about crafting experiences that matter.
           </p>
 
           <h3>Personal Touch</h3>
           <p>
             When I’m not in front of a screen writing code, I’m probably lost in
-            music—Queen, Air Supply, and Kolohe Kai are always on repeat.
+            music, Queen, Air Supply, and Kolohe Kai are always on repeat.
           </p>
 
           <div className="about-details">

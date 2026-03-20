@@ -1,17 +1,28 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
-import "../styles/Certificates.css"
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import "../styles/Certificates.css";
 
 const Certificates = () => {
-  const [selectedCertificate, setSelectedCertificate] = useState(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const carouselRef = useRef(null)
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const carouselRef = useRef(null);
 
   const certificates = [
+    // 1. NEW CSS CERTIFICATE (First Item)
+    {
+      id: 0,
+      title: "Panelist During the CSE133 Technopreneurship Final Pitching",
+      issuer: "WMSU & Zamboanga ICT Council",
+      date: "Dec 11-12, 2025",
+      description:
+        "For serving as a Panelist during the CSE133 Technopreneurship Final Pitching.",
+      image: "/certificates/cert13.png",
+    },
+    // 2. EXISTING CERTIFICATES
     {
       id: 1,
       title: "Generative AI for Beginners",
@@ -79,31 +90,35 @@ const Certificates = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768)
-    }
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const openModal = (certificate) => {
-    setSelectedCertificate(certificate)
-    document.body.style.overflow = "hidden"
-  }
+    setSelectedCertificate(certificate);
+    document.body.style.overflow = "hidden";
+  };
 
   const closeModal = () => {
-    setSelectedCertificate(null)
-    document.body.style.overflow = "auto"
-  }
+    setSelectedCertificate(null);
+    document.body.style.overflow = "auto";
+  };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === certificates.length - 1 ? 0 : prevIndex + 1))
-  }
+    setCurrentIndex((prevIndex) =>
+      prevIndex === certificates.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? certificates.length - 1 : prevIndex - 1))
-  }
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? certificates.length - 1 : prevIndex - 1
+    );
+  };
 
   return (
     <div className="certificates-container">
@@ -124,16 +139,21 @@ const Certificates = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        A collection of professional certifications and courses I've completed to enhance my skills and stay current
-        with industry standards.
+        A collection of professional certifications and courses I've completed
+        to enhance my skills and stay current with industry standards.
       </motion.p>
 
       <div className="carousel-container" ref={carouselRef}>
-        <div className="carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        <div
+          className="carousel-track"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
           {certificates.map((certificate, index) => (
             <div
               key={certificate.id}
-              className={`carousel-slide ${index === currentIndex ? "active" : ""}`}
+              className={`carousel-slide ${
+                index === currentIndex ? "active" : ""
+              }`}
               onClick={() => index === currentIndex && openModal(certificate)}
             >
               <div className="certificate-card">
@@ -143,8 +163,8 @@ const Certificates = () => {
                     alt={certificate.title}
                     className="certificate-image"
                     onError={(e) => {
-                      e.target.src = `/placeholder.svg?height=400&width=600`
-                      e.target.alt = `${certificate.title} (placeholder)`
+                      e.target.src = `/placeholder.svg?height=400&width=600`;
+                      e.target.alt = `${certificate.title} (placeholder)`;
                     }}
                   />
                 </div>
@@ -159,10 +179,18 @@ const Certificates = () => {
           ))}
         </div>
 
-        <button className="carousel-arrow prev" onClick={handlePrev} aria-label="Previous certificate">
+        <button
+          className="carousel-arrow prev"
+          onClick={handlePrev}
+          aria-label="Previous certificate"
+        >
           <ChevronLeft size={24} />
         </button>
-        <button className="carousel-arrow next" onClick={handleNext} aria-label="Next certificate">
+        <button
+          className="carousel-arrow next"
+          onClick={handleNext}
+          aria-label="Next certificate"
+        >
           <ChevronRight size={24} />
         </button>
 
@@ -170,7 +198,9 @@ const Certificates = () => {
           {certificates.map((_, index) => (
             <button
               key={index}
-              className={`pagination-dot ${index === currentIndex ? "active" : ""}`}
+              className={`pagination-dot ${
+                index === currentIndex ? "active" : ""
+              }`}
               onClick={() => setCurrentIndex(index)}
               aria-label={`Go to certificate ${index + 1}`}
             />
@@ -202,8 +232,8 @@ const Certificates = () => {
                 alt={selectedCertificate.title}
                 className="modal-image"
                 onError={(e) => {
-                  e.target.src = `/placeholder.svg?height=600&width=800`
-                  e.target.alt = `${selectedCertificate.title} (placeholder)`
+                  e.target.src = `/placeholder.svg?height=600&width=800`;
+                  e.target.alt = `${selectedCertificate.title} (placeholder)`;
                 }}
               />
               <div className="modal-info">
@@ -217,7 +247,7 @@ const Certificates = () => {
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
-export default Certificates
+export default Certificates;

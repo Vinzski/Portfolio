@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, ArrowRight, Github, Linkedin } from "lucide-react"
+import { Mail, ArrowRight } from "lucide-react"
 import "../styles/CallToAction.css"
 
 const CallToAction = () => {
@@ -52,8 +52,8 @@ const CallToAction = () => {
             <Mail size={18} />
           </motion.button>
 
-          {/* <motion.a
-            href="/resume.pdf"
+          <motion.a
+            href="/resume/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-button secondary"
@@ -62,7 +62,7 @@ const CallToAction = () => {
           >
             View Resume
             <ArrowRight size={18} />
-          </motion.a> */}
+          </motion.a>
         </motion.div>
       </div>
     </section>

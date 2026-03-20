@@ -1,86 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 import "../styles/Projects.css";
 
 const Projects = () => {
   const projects = [
     {
-      id: 1,
-      title: "Bizbot",
+      id: 12,
+      title: "PestCozam",
       description:
-        "BizBot: Customizable Intelligent Chatbot for Business Support and Information Retrieval",
-      image: "/projects/bizbot.png",
-      technologies: [
-        "Node.js",
-        "MongoDB",
-        "Rasa",
-        "Cohere",
-        "Machine Learning",
-        "AI",
-      ],
-      demoLink: "",
-      codeLink: "https://github.com/Vinzski/Bizbot",
-    },
-    {
-      id: 2,
-      title: "Certificate Time Tracker",
-      description:
-        "A Website Where You Can Track Time Spent, Remaining, and Overall for Certificates",
-      image: "/projects/certificatetracker.png",
-      technologies: ["React"],
-      demoLink: "",
-      codeLink: "https://github.com/Vinzski/certficate-time-tracker",
-    },
-    {
-      id: 3,
-      title: "PokePlay",
-      description:
-        "A Pokemon Website Where You Can Create Your Own Pokemon Team And Battle",
-      image: "/projects/pokeplay.png",
-      technologies: ["PokeAPI", "React"],
-      demoLink: "",
-      codeLink: "https://github.com/Vinzski/pokeplay",
-    },
-    {
-      id: 4,
-      title: "Baccarat Predictor",
-      description:
-        "A Python Built Website Which Tries To Predict The Next Hand Win in Baccarat",
-      image: "/projects/baccarat.png",
-      technologies: ["Python", "Machine Learning"],
-      demoLink: "",
-      codeLink: "https://github.com/Vinzski/baccarat-predictor",
-    },
-    {
-      id: 5,
-      title: "Crimson Things",
-      description: "A Website Made by WMSU Students for WMSU Students",
-      image: "/projects/crimsonthings.png",
-      technologies: ["PHP", "MySQL"],
+        "A clean and professional pest control website for PESTCOZAM, a Zamboanga-based company offering integrated pest management solutions  featuring service listings, pricing, appointment booking, and a trust-building layout designed to convert homeowners and businesses into confident, pest-free clients.",
+      image: "/projects/pestcozam.png",
+      technologies: ["Laravel", "Vue", "React Native", "MySQL"],
       demoLink: "",
       codeLink: "",
     },
     {
-      id: 6,
-      title: "Scientific Calculator",
+      id: 11,
+      title: "LEM International",
       description:
-        "An online tool for performing basic and advanced math functions like trig, logs, and exponents.",
-      image: "/projects/scical.png",
-      technologies: ["React"],
-      demoLink: "",
-      codeLink: "https://github.com/Vinzski/react-scientific-calculator",
-    },
-    {
-      id: 7,
-      title: "PowerHouse",
-      description:
-        "An E-commerce website for gym owners which their users can use for to get gym membership and equipment rental and selling",
-      image: "/projects/powerhouse.jpg",
-      technologies: ["PHP", "MySQL"],
+        "Lem International is a nationwide field operations company that deploys professional canvassing and outreach teams across 48 states to help campaigns, nonprofits, and brands connect directly with voters and customers at the door.",
+      image: "/projects/lem.png",
+      technologies: ["Laravel", "Vue", "MySQL"],
       demoLink: "",
       codeLink: "",
+    },
+    {
+      id: 10,
+      title: "Concierge",
+      description:
+        "A sleek luxury services platform showcasing a curated suite of high-end offerings chauffeurs, yacht charters, private chefs, premium Airbnbs, and exclusive home services designed to connect discerning clients with world-class experiences.",
+      image: "/projects/concierge.png",
+      technologies: ["Laravel", "MySQL"],
+      demoLink: "",
+      codeLink: "",
+    },
+    {
+      id: 9,
+      title: "DentalCare",
+      description:
+        "A comprehensive dental appointment system designed to serve administrators, dentists, secretaries, and patients alike.",
+      image: "/projects/dentalcare.png",
+      technologies: ["Laravel", "MySQL"],
+      demoLink: "",
+      codeLink: "https://github.com/JzHamid/dentalcare",
     },
     {
       id: 8,
@@ -93,14 +57,73 @@ const Projects = () => {
       codeLink: "https://github.com/Vinzski/blog",
     },
     {
-      id: 8,
-      title: "DentalCare",
+      id: 2,
+      title: "Certificate Time Tracker",
       description:
-        "A comprehensive dental appointment system designed to serve administrators, dentists, secretaries, and patients alike.",
-      image: "/projects/dentalcare.png",
-      technologies: ["Laravel", "MySQL"],
+        "A Website Where You Can Track Time Spent, Remaining, and Overall for Certificates",
+      image: "/projects/certificatetracker.png",
+      technologies: ["React"],
       demoLink: "",
-      codeLink: "https://github.com/JzHamid/dentalcare",
+      codeLink: "https://github.com/Vinzski/certficate-time-tracker",
+    },
+    {
+      id: 1,
+      title: "Bizbot",
+      description:
+        "BizBot: Customizable Intelligent Chatbot for Business Support and Information Retrieval",
+      image: "/projects/bizbot.png",
+      technologies: ["Node.js", "MongoDB", "Rasa", "Cohere", "Machine Learning", "AI"],
+      demoLink: "",
+      codeLink: "https://github.com/Vinzski/Bizbot",
+    },
+    {
+      id: 3,
+      title: "PokePlay",
+      description:
+        "A Pokemon Website Where You Can Create Your Own Pokemon Team And Battle",
+      image: "/projects/pokeplay.png",
+      technologies: ["PokeAPI", "React"],
+      demoLink: "",
+      codeLink: "https://github.com/Vinzski/pokeplay",
+    },
+    {
+      id: 6,
+      title: "Scientific Calculator",
+      description:
+        "An online tool for performing basic and advanced math functions like trig, logs, and exponents.",
+      image: "/projects/scical.png",
+      technologies: ["React"],
+      demoLink: "",
+      codeLink: "https://github.com/Vinzski/react-scientific-calculator",
+    },
+    {
+      id: 4,
+      title: "Baccarat Predictor",
+      description:
+        "A Python Built Website Which Tries To Predict The Next Hand Win in Baccarat",
+      image: "/projects/baccarat.png",
+      technologies: ["Python", "Machine Learning"],
+      demoLink: "",
+      codeLink: "https://github.com/Vinzski/baccarat-predictor",
+    },
+    {
+      id: 7,
+      title: "PowerHouse",
+      description:
+        "An E-commerce website for gym owners which their users can use to get gym membership and equipment rental and selling",
+      image: "/projects/powerhouse.jpg",
+      technologies: ["PHP", "MySQL"],
+      demoLink: "",
+      codeLink: "",
+    },
+    {
+      id: 5,
+      title: "Crimson Things",
+      description: "A Website Made by WMSU Students for WMSU Students",
+      image: "/projects/crimsonthings.png",
+      technologies: ["PHP", "MySQL"],
+      demoLink: "",
+      codeLink: "",
     },
   ];
 
@@ -149,17 +172,19 @@ const Projects = () => {
               />
               <div className="project-overlay">
                 <div className="project-buttons">
-                  <motion.a
-                    href={project.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-button code"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Github size={16} />
-                    View Code
-                  </motion.a>
+                  {project.codeLink && (
+                    <motion.a
+                      href={project.codeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-button code"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Github size={16} />
+                      View Code
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </div>
