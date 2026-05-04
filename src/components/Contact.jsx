@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, CheckCircle, AlertCircle } from "lucide-react"
+import emailjs from "@emailjs/browser"
 import "../styles/Contact.css"
 
 const Contact = () => {
@@ -63,27 +64,24 @@ const Contact = () => {
     setIsSubmitting(true)
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-
-      // In a real app, you would send the form data to your backend or a service like EmailJS
-      // const response = await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          reply_email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
 
       setSubmitStatus("success")
       setFormData({ name: "", email: "", message: "" })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus(null)
-      }, 5000)
+      setTimeout(() => setSubmitStatus(null), 5000)
     } catch (error) {
-      console.error("Error sending email:", error)
+      console.error("EmailJS error:", error)
       setSubmitStatus("error")
-
-      // Reset error message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus(null)
-      }, 5000)
+      setTimeout(() => setSubmitStatus(null), 5000)
     } finally {
       setIsSubmitting(false)
     }
@@ -117,8 +115,8 @@ const Contact = () => {
           <p>
             You can also reach me directly at:
             <br />
-            <a href="mailto:hello@example.com" className="contact-email">
-              hello@example.com
+            <a href="mailto:vinzmuloc@gmail.com" className="contact-email">
+              vinzmuloc@gmail.com
             </a>
           </p>
         </motion.div>

@@ -26,7 +26,7 @@ const About = () => {
 
   const timelineItems = [
 {
-      year: "2026",
+      year: "May 2026 - Present",
       title: "Project Technical Assistant II (IT STAFF)",
       company: "Department of Science and Technology (DOST) Regional Office IX",
       description:
@@ -34,7 +34,7 @@ const About = () => {
       icon: <Briefcase size={20} />,
     },
     {
-      year: "2025",
+      year: "August 2025 - April 2026",
       title: "Software Developer",
       company: "Local Government Unit of Zamboanga City",
       description:
@@ -42,7 +42,7 @@ const About = () => {
       icon: <Briefcase size={20} />,
     },
     {
-      year: "2025",
+      year: "May 2025",
       title: "Graduated",
       company: "Western Mindanao State University",
       description: "Finished my Bachelors Degree in Information Technology",
@@ -144,13 +144,13 @@ const About = () => {
           </p>
 
           <div className="about-details">
-            <div className="detail-item">
+            <div className="detail-item"> 
               <Calendar size={20} className="detail-icon" />
-              <span>Born: September 20, 2002</span>
+              <span>Technical Interests: Web Development</span>
             </div>
             <div className="detail-item">
               <MapPin size={20} className="detail-icon" />
-              <span>Location: Zamboanga City, Philippines</span>
+              <span>Location: Philippines</span>
             </div>
             <div className="detail-item">
               <Heart size={20} className="detail-icon" />

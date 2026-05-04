@@ -1,19 +1,27 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Code, Cpu, Server, GitBranch, Download, Github, Linkedin } from "lucide-react";
+import {
+  Code,
+  Cpu,
+  Server,
+  GitBranch,
+  Download,
+  Github,
+  Linkedin,
+} from "lucide-react";
 import "../styles/Hero.css";
 
 const Hero = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  
+
   const roles = [
     "Backend Developer",
     "Logical Thinker",
     "AI Enjoyer",
-    "Web Developer"
+    "Web Developer",
   ];
 
   const scrollToProjects = () => {
@@ -24,12 +32,12 @@ const Hero = () => {
   useEffect(() => {
     const role = roles[currentRoleIndex];
     const speed = isDeleting ? 30 : 100;
-    
+
     if (!isDeleting && displayText === role) {
       setTimeout(() => setIsDeleting(true), 2000);
       return;
     }
-    
+
     if (isDeleting && displayText === "") {
       setIsDeleting(false);
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
@@ -37,9 +45,10 @@ const Hero = () => {
     }
 
     const timeout = setTimeout(() => {
-      setDisplayText(isDeleting 
-        ? role.substring(0, displayText.length - 1)
-        : role.substring(0, displayText.length + 1)
+      setDisplayText(
+        isDeleting
+          ? role.substring(0, displayText.length - 1)
+          : role.substring(0, displayText.length + 1),
       );
     }, speed);
 
@@ -52,17 +61,21 @@ const Hero = () => {
         <div className="grid-lines"></div>
         <div className="floating-shapes">
           {[...Array(8)].map((_, i) => (
-            <div key={i} className="shape" style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${i * 2}s`
-            }}></div>
+            <div
+              key={i}
+              className="shape"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${i * 2}s`,
+              }}
+            ></div>
           ))}
         </div>
       </div>
 
       <div className="hero-content">
-        <motion.div 
+        <motion.div
           className="intro-text"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -77,14 +90,14 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <motion.p 
+        <motion.p
           className="tagline"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          Building <span className="highlight">scalable</span>,{' '}
-          <span className="highlight">efficient</span> systems that power{' '}
+          Building <span className="highlight">scalable</span>,{" "}
+          <span className="highlight">efficient</span> systems that power{" "}
           <span className="highlight">exceptional</span> digital experiences
         </motion.p>
 
@@ -93,7 +106,7 @@ const Hero = () => {
             { icon: <Server size={20} />, label: "Server-Side" },
             { icon: <Cpu size={20} />, label: "Optimization" },
             { icon: <GitBranch size={20} />, label: "Version Control" },
-            { icon: <Code size={20} />, label: "Clean Code" }
+            { icon: <Code size={20} />, label: "Clean Code" },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -117,8 +130,8 @@ const Hero = () => {
         >
           {[
             { value: "13", label: "Projects" },
-            { value: "10+", label: "Certificates" },
-            { value: "BSIT", label: "Graduate" },
+            { value: "5+", label: "Clients Served." },
+            { value: "2+", label: "Years Experience" },
           ].map((stat, i) => (
             <div key={i} className="hero-stat">
               <span className="stat-value">{stat.value}</span>
@@ -154,10 +167,20 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
         >
-          <a href="https://github.com/Vinzski" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a
+            href="https://github.com/Vinzski"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
             <Github size={20} />
           </a>
-          <a href="https://www.linkedin.com/in/vince-muloc-966920327/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a
+            href="https://www.linkedin.com/in/vince-muloc-966920327/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
             <Linkedin size={20} />
           </a>
         </motion.div>
