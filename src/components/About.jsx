@@ -10,6 +10,7 @@ import {
   Heart,
   Award,
   ChevronDown,
+  Briefcase,
 } from "lucide-react";
 import TechCarousel from "./TechCarousel";
 import "../styles/About.css";
@@ -24,12 +25,21 @@ const About = () => {
   };
 
   const timelineItems = [
+{
+      year: "2026",
+      title: "Project Technical Assistant II (IT STAFF)",
+      company: "Department of Science and Technology (DOST) Regional Office IX",
+      description:
+        "Develop and maintain official websites and web applications, ensuring reliable and accessible digital platforms for DOST Regional Office IX's science and technology initiatives.",
+      icon: <Briefcase size={20} />,
+    },
     {
       year: "2025",
       title: "Software Developer",
       company: "Local Government Unit of Zamboanga City",
-      description: "Working as a software developer at my local government unit, developing different types of systems which include payrolls, procurements, document tracking.",
-      icon: <GraduationCap size={20} />,
+      description:
+        "Working as a software developer at my local government unit, developing different types of systems which include payrolls, procurements, document tracking.",
+      icon: <Briefcase size={20} />,
     },
     {
       year: "2025",

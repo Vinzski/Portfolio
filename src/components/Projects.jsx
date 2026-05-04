@@ -7,22 +7,32 @@ import "../styles/Projects.css";
 const Projects = () => {
   const projects = [
     {
-      id: 12,
-      title: "PestCozam",
-      description:
-        "A clean and professional pest control website for PESTCOZAM, a Zamboanga-based company offering integrated pest management solutions  featuring service listings, pricing, appointment booking, and a trust-building layout designed to convert homeowners and businesses into confident, pest-free clients.",
-      image: "/projects/pestcozam.png",
-      technologies: ["Laravel", "Vue", "React Native", "MySQL"],
-      demoLink: "",
-      codeLink: "",
-    },
-    {
       id: 11,
       title: "LEM International",
       description:
         "Lem International is a nationwide field operations company that deploys professional canvassing and outreach teams across 48 states to help campaigns, nonprofits, and brands connect directly with voters and customers at the door.",
       image: "/projects/lem.png",
       technologies: ["Laravel", "Vue", "MySQL"],
+      demoLink: "",
+      codeLink: "",
+    },
+    {
+      id: 13,
+      title: "LightWay Strategy",
+      description:
+        "A strategic field operations platform that deploys dedicated canvassing and outreach teams. It empowers campaigns, advocacy groups, and grassroots organizations to effectively mobilize supporters and engage directly with voters.",
+      image: "/projects/lightway.png",
+      technologies: ["Laravel", "Vue", "MySQL"],
+      demoLink: "",
+      codeLink: "",
+    },
+    {
+      id: 12,
+      title: "PestCozam",
+      description:
+        "A clean and professional pest control website for PESTCOZAM, a Zamboanga-based company offering integrated pest management solutions featuring service listings, pricing, appointment booking, and a trust-building layout designed to convert homeowners and businesses into confident, pest-free clients.",
+      image: "/projects/pestcozam.png",
+      technologies: ["Laravel", "Vue", "React Native", "MySQL"],
       demoLink: "",
       codeLink: "",
     },
